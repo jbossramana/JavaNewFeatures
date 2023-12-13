@@ -1,0 +1,21 @@
+Java 11 String Features:
+
+>> isBlank()  Checks if a string is empty or contains only white spaces.
+
+String str = "  ";
+boolean isBlank = str.isBlank(); // true
+
+>> strip() and stripLeading(), stripTrailing() : Removes leading and trailing whitespaces from a string.
+
+String str = "   Hello, World!   ";
+String stripped = str.strip(); // "Hello, World!"
+
+>> repeat(int count) : Repeats the string a specified number of times.
+
+String repeated = "abc".repeat(3); // "abcabcabc"
+
+>> lines() : Returns a stream of lines extracted from the string.
+
+String multilineString = "Line 1\nLine 2\nLine 3";
+List<String> lines = multilineString.lines().collect(Collectors.toList());
+

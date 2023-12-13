@@ -1,0 +1,19 @@
+Reactive Streams in Java:
+
+Reactive Streams is a specification for asynchronous stream processing with non-blocking backpressure. It was introduced 
+to address the challenges of handling asynchronous and potentially unbounded data streams efficiently. The Reactive 
+Streams API provides a set of interfaces and classes to support the development of reactive systems that can handle streams 
+of data asynchronously and responsively.
+
+The key interfaces in the Reactive Streams API are:
+
+Publisher: Represents a source of data or events. It produces items and can be subscribed to by one or more subscribers.
+
+Subscriber: Consumes items from a Publisher. It subscribes to a Publisher and receives items through the onNext method. It can 
+also handle errors (onError) and signal completion (onComplete).
+
+Subscription: Represents the link between a Publisher and a Subscriber. It allows a Subscriber to request a certain number of 
+items and handle cancellation.
+
+Processor: Represents a processing stage that is both a Subscriber and a Publisher. It consumes items from a source Publisher, 
+applies some processing, and then publishes the results to downstream Subscribers.

@@ -1,0 +1,31 @@
+The Open-Closed Principle is one of the SOLID principles in object-oriented design and programming.
+ The Open-Closed Principle (OCP) states:
+
+"Software entities (classes, modules, functions, etc.) should be open for extension but closed for modification."
+
+In simpler terms, the Open-Closed Principle encourages you to design your software in a way that allows you to 
+add new functionality or extend existing functionality without altering the existing code. This principle promotes 
+flexibility and maintainability in your software systems. Here's a breakdown of the key concepts:
+
+1. Open for Extension: This part of the principle implies that your code should be designed in such a way that 
+we can introduce new features or behaviors without changing the existing code. You should be able to extend 
+the software's functionality through additions or extensions.
+
+2. Closed for Modification: This part of the principle emphasizes that once a module, class, or component is 
+considered stable and in production, you should avoid making direct changes to its source code. Instead, any 
+changes or improvements should be achieved by adding new code or extending the existing codebase.
+
+The Open-Closed Principle encourages the use of techniques such as inheritance, interfaces, abstract classes, 
+and polymorphism to achieve extensibility without modifying existing code. By doing so, you reduce the risk of 
+introducing new bugs into previously working code and maintain a higher level of software stability.
+
+Here's a simple example to illustrate the Open-Closed Principle:
+
+Suppose you have a system that calculates the areas of various shapes, and you have a base `Shape` class with 
+different subclasses like `Circle`, `Rectangle`, and `Triangle`. To follow the Open-Closed Principle, you can introduce 
+new shapes without modifying the existing code. For example, you can create a new class `Pentagon` that extends 
+`Shape` and implements its own area calculation method. This way, you're open for extension (adding new shapes) 
+and closed for modification (no need to change the existing `Shape` or shape-specific classes).
+
+By adhering to the Open-Closed Principle, you build more robust and maintainable software systems that can evolve 
+and adapt to changing requirements without causing disruptions in existing functionality.

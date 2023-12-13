@@ -1,0 +1,27 @@
+Immutability:
+
+Lombok does not enforce immutability by default. While you can use @Value in 
+Lombok to create immutable classes, it's not as implicit and clear as records.
+Records are inherently immutable. The fields in a record are implicitly final, 
+and the generated methods reflect this immutability.
+
+Generated Methods:
+
+Lombok generates methods based on annotations (e.g., @Getter, @ToString, etc.), and 
+you have control over which methods are generated.
+
+Records implicitly generate equals, hashCode, and toString methods based on the fields. 
+You don't need to explicitly annotate or specify them.
+
+Java Version:
+
+Lombok has been available for use in Java for a longer time, and it's not limited to a 
+specific Java version.
+
+Records were introduced in Java 16 and provide a native language feature for creating 
+immutable data structures.
+
+In summary, Lombok and records address different aspects of reducing boilerplate code.
+Lombok is a library that can be used with various Java versions, while records are a 
+language feature introduced in Java 16 specifically designed for creating immutable 
+data structures.

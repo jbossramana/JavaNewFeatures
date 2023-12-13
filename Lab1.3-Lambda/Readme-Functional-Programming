@@ -1,0 +1,42 @@
+What is Functional Programming?
+
+Functional programming (also called FP) is a way of thinking about software construction 
+by creating pure functions. 
+
+It avoid concepts of shared state, mutable data observed in Object Oriented Programming.
+
+FP depends  only on the arguments passed to the function.
+
+
+Characteristics of Functional Programming
+
+Functional programming method focuses on results, not the process
+Emphasis is on what is to be computed
+Data is immutable
+Functional programming Decompose the problem into ‘functions
+It is built on the concept of mathematical functions which uses conditional expressions and recursion to do perform the calculation
+It does not support iteration like loop statements and conditional statements like If-Else
+
+
+Pure functions act on their parameters. It is not efficient if not returning anything. Moreover, it offers the same output for the 
+given parameters
+
+Example:
+
+Function Pure(a,b)
+{
+	return a+b;
+}
+Impure functions
+Impure functions exactly in the opposite of pure. They have hidden inputs or output; it is called impure. Impure functions cannot
+be used or tested in isolation as they have dependencies.
+
+Example
+
+int z;
+function notPure(){
+	z = z+10;
+}
+
+
+

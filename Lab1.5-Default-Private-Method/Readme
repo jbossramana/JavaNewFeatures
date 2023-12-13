@@ -1,0 +1,60 @@
+Java 9 onward, we can able to include private methods in interfaces. 
+
+Private methods in interfaces are encapsulated within the interface itself, meaning 
+they are not accessible from outside the interface. This helps in keeping the 
+internal implementation details hidden and provides a cleaner and more secure API.
+
+Ex:  Imagine you are working on a system that processes data in different formats, '
+such as XML and JSON. You have an interface DataProcessor that defines methods 
+for processing data. With private methods, you can encapsulate common logic for 
+parsing and validating data, promoting code reusability and maintainability.
+
+
+interface DataProcessor {
+    // Public method exposed in the interface
+    void process(String data);
+
+    // Private method for parsing data
+    private void parseData(String data) {
+        System.out.println("Parsing data: " + data);
+        // Additional parsing logic...
+    }
+
+    // Private method for validating data
+    private void validateData(String data) {
+        System.out.println("Validating data: " + data);
+        // Additional validation logic...
+    }
+
+    // Concrete implementation of the process method
+    default void process(String data) {
+        // Call private methods for parsing and validating
+        parseData(data);
+        validateData(data);
+
+        // Additional processing logic...
+        System.out.println("Processing data: " + data);
+    }
+}
+
+
+A default method is a method declared in an interface with the default keyword and 
+provides a default implementation. If a class implements that interface and does not 
+provide its own implementation of the default method, it will inherit the default 
+implementation from the interface.
+
+However, if a class wants to provide its own implementation for a default method, 
+it can override that method. The overridden method in the implementing class takes 
+precedence over the default implementation in the interface.
+
+#### Note ####
+
+default methods provide a default implementation that can be optionally overridden by 
+implementing classes.
+
+final methods indicate that implementing classes cannot override the method's 
+implementation.
+
+
+
+

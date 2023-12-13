@@ -1,0 +1,38 @@
+GC Types:
+> ParallelGC : High Throughput
+> G1GC : Low Latency
+
+Note:
+ParallelGC is default with JDK8
+G1GC is default from jdk11 onwards
+
+1.  To check the  default GC algorithm and version
+
+java -XX:+PrintCommandLineFlags  -version
+
+* G1GC is default from jdk11 onwards
+
+2. To use parallelGC
+
+java -XX:+UseParallelGC -XX:+PrintCommandLineFlags  -version
+
+2. jvm flags 
+
+To view all the available flags that can be passed to the jvm, run the following command:
+
+java -XX:+PrintFlagsFinal
+
+
+3. Enable Logging with the JVM Unified Logging Framework: (jdk11)
+
+ %p represents the process ID of the Java process. %t prints the timestamp for when the log was created. Maximum file size is 50 MB, and file rollover happens after 10 files:
+
+-Xlog:gc*,gc+ref=debug,gc+heap=debug,gc+age=trace:file=gc-%p-%t.log:tags,uptime,time,level:filecount=10,filesize=50m
+
+-Xlog:gc:file=gc.log:utctime,pid,level,tags:filecount=3,filesize=100M
+
+-Xlog:gc*:file=gc.log:utctime,pid,level,tags:filecount=3,filesize=100M -XX:+UseParallelGC -XX:ParallelGCThreads=4
+
+
+
+

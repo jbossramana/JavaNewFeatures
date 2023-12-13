@@ -1,0 +1,27 @@
+Example Overview:
+
+Common Module com.example:
+
+Purpose: This module defines the MyService interface, which is implemented by the Simple class in the com.module.simple module.
+
+module-info.java:
+exports com.example: Makes the package com.example accessible to other modules.
+
+Module com.module.simple:
+
+Purpose: This module provides a simple class (Simple) that has a method (getInfo()) returning a string and implements the MyService interface 
+by providing the performAction() method.
+
+module-info.java:
+exports com.module.simple: This directive makes the package com.module.simple accessible to other modules.
+requires transitive java.logging: Indicates a transitive dependency on the java.logging module.
+provides com.example.MyService with com.module.simple.Simple: Specifies that the Simple class provides the implementation for the MyService interface.
+
+Module com.module.client:
+
+Purpose: This module contains a client class (SimpleClient) that uses the Simple class from the com.module.simple module and interacts with the MyService interface.
+
+module-info.java:
+requires com.module.simple: Declares a dependency on the com.module.simple module.
+uses com.example.MyService: Indicates that this module uses the MyService interface.
+

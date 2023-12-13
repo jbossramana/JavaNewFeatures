@@ -1,0 +1,38 @@
+jdk 8
+=====
+   @GetMapping("/greet")
+    public String greet(@RequestParam String language) {
+        String greeting;
+        if ("en".equals(language)) {
+            greeting = "Hello, World!";
+        } else if ("fr".equals(language)) {
+            greeting = "Bonjour, le Monde!";
+        } else if ("es".equals(language)) {
+            greeting = "Hola, Mundo!";
+        } else {
+            greeting = "Unsupported language.";
+        }
+
+        return greeting;
+    }
+    
+    
+    
+jdk 14
+======
+
+
+    @GetMapping("/greet")
+    public String greet(@RequestParam String language) {
+        String greeting = switch (language) {
+            case "en" -> "Hello, World!";
+            case "fr" -> "Bonjour, le Monde!";
+            case "es" -> "Hola, Mundo!";
+            default -> "Unsupported language.";
+        };
+
+        return greeting;
+    }
+
+    
+    

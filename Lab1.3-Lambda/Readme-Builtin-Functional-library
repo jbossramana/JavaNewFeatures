@@ -1,0 +1,58 @@
+
+Java 8 introduced Lambda expressions and method reference syntax. Lambda expressions are 
+allowed only for Functional Interfaces. Lambda expressions are quite easy to write and reduce 
+number of LOC dramatically. Since Lambda expression are quite useful, Java 8 added few 
+built-in functional interfaces under java.util.function so that programmers don’t need to write them
+again and use them through lambda expression. It’s useful to know about these built-in functional
+interfaces as It will definitely accelerate your java coding. In case you forgot what is Functional Interface:
+
+In our day to day programming many times we come across re-occurring functionalities to be developed. 
+In that case, we can utilize the predefined functional interfaces instead of creating our own every time. 
+They will obviously save our development time and minimize chances of mistakes.
+
+java.util.function package provides a set of re-usable common functional interfaces( and their corresponding lambda) 
+definitions which can be used by the programmer in his code instead of creating brand new functional interfaces.
+
+Functional Interface has exactly one abstract method
+
+According to Java Doc, there are almost 43 functional interfaces under java.util.function package
+
+java.util.function Package:
+================
+
+The java.util.function package in Java 8 contains many builtin functional
+interfaces like-
+
+
+Predicate: 
+======
+
+The Predicate interface has an abstract method test which gives a Boolean 
+value as a result for the specified argument. Its prototype is
+
+public Predicate
+{
+   public boolean test(T  t);
+ }
+
+BinaryOperator: 
+==========
+
+The BinaryOperator interface has an abstract method apply which takes two 
+argument and returns a result of same type. Its prototype is
+
+public interface BinaryOperator 
+{
+     public T apply(T x, T y);
+}       
+
+Function: 
+======
+
+The Function interface has an abstract method apply which takes argument 
+of type T and  returns a result of type R. Its prototype is
+
+public interface Function 
+{
+   public R apply(T t);
+}

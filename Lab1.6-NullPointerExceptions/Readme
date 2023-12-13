@@ -1,0 +1,20 @@
+Helpful NullPointerExceptions: Java 14 improved NullPointerExceptions by providing more detailed information 
+about the null reference that caused the exception. It includes the name of the variable or expression that
+was null, making  it easier to identify the source of the problem.
+ 
+ The enhanced NullPointerException message clearly states that the exception occurred at line 6 in the Main 
+ class and  provides additional information about the specific method (String.length()) that was called on 
+ the null reference (text).
+
+This example demonstrates how helpful NullPointerExceptions in JDK 14 provide more detailed information, 
+making it easier to identify the source of the null reference and assist in debugging and resolving 
+NullPointerExceptions.
+
+
+jdk8 
+Exception in thread "main" java.lang.NullPointerException
+	at demo.Main.main(Main.java:6)
+
+jdk14 onwards
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "String.length()" because "text" is null
+	at demo.Main.main(Main.java:6)

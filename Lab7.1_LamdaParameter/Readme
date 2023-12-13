@@ -1,0 +1,6 @@
+Java 11 introduced an enhancement related to lambda parameters called 
+"Improved Lambda Parameter Syntax." 
+
+This enhancement allows the use of underscores (_) as identifiers for lambda 
+parameters when the types can be inferred. This is particularly useful in cases 
+where the parameter types are clear from the context, such as in single-method interfaces.

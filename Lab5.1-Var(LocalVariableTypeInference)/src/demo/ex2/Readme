@@ -1,0 +1,12 @@
+The reason behind this limitation is that instance variables and fields need to have an 
+explicitly declared type in Java for various reasons:
+
+Type Safety: Instance variables are associated with the state of an object, and having an 
+explicitly declared type ensures type safety during compile-time. This is crucial for preventing 
+type-related errors.
+
+Readability and Maintainability: Explicitly declaring the types of instance variables makes code 
+more readable and helps maintainers understand the structure of the class.
+
+Compatibility: Maintaining backward compatibility is important in Java. Allowing var for instance 
+variables could potentially introduce breaking changes to existing code.

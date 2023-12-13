@@ -1,0 +1,35 @@
+The design has now undergone the following important changes to become extensible in nature –
+
+There is a base interface Shape. All shapes now implement the base interface Shape
+
+Shape interface has an abstract method calculateArea(). Both circle & rectangle provide their own 
+overridden implementation of calculateArea() method using their own attributes.
+
+We have brought-in a degree of extensibility as shapes are now an instance of Shape interfaces. 
+This allows us to use Shape instead of individual classes wherever these classes are used by 
+any consumer.
+
+
+The last point above mentioned consumer of these shapes. In our case consumer will be the AreaCalculator 
+class which would now look like this –
+
+AreaCalculator.java
+public class AreaCalculator{
+  public double calculateShapeArea(Shape shape){
+    return shape.calculateArea();
+  }
+}
+
+This AreaCalculator class now fully removes our design flaws noted above and gives a clean solution
+which adheres to the Open-Closed Principle.
+
+ 
+ The design is now correct as per Open Closed Principle due to the following reasons –
+
+The design is open for extension as more shapes can be added without modifying the existing code. 
+We just need to create a new class for the new shape and implement the calculateArea() method 
+with a formula specific to that new shape.
+
+This design is also closed for modification. AreaCalculator class is complete w.r.t area calculations. 
+It now caters to all the shapes which exists now, as well as to those that may be created later.
+

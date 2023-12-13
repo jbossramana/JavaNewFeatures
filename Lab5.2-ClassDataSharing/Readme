@@ -1,0 +1,41 @@
+Class Data Sharing is a feature in Java that allows multiple Java Virtual Machines (JVMs) to share a common read-only memory 
+space containing classes and methods. This can improve startup time and reduce memory footprint.
+
+Here's a brief overview of how Application CDS works in Java:
+
+Class Data Sharing (CDS):
+
+In Java, classes are loaded by the JVM dynamically as needed. Class Data Sharing allows the JVM to precompute and store certain 
+internal representations of classes in a shared archive file. This shared archive file contains data structures related to class metadata, 
+bytecode, and internal representations. By sharing this data among multiple JVM instances, it reduces the startup time and memory usage.
+
+Creating the Shared Archive:
+
+To create the shared archive, you typically use the -Xshare:dump option when running the Java application. This command instructs the 
+JVM to dump the shared archive. For example:
+
+java -Xshare:dump -cp <classpath> <MainClass>
+
+Using the Shared Archive:
+
+Once the shared archive is created, you can use it when starting other Java applications. This is done by using the -Xshare:on option.
+For example:
+
+java -Xshare:on -cp <classpath> <MainClass>
+
+Benefits:
+
+Reduced startup time: Loading classes from the shared archive is generally faster than loading from individual class files.
+Memory footprint reduction: Since classes are shared among JVM instances, it reduces the overall memory consumption.
+
+
+Example:
+To create the shared archive:
+java -Xshare:dump -cp . HelloWorld
+
+To use the shared archive: (see the time difference with on/off)
+java -Xshare:off -cp . HelloWorld
+java -Xshare:on -cp . HelloWorld
+
+Note: To remove the shared archive, remove jdk/bin/server/classes.jsa
+
