@@ -1,0 +1,67 @@
+Thread-Local Variables:
+=======================
+
+Definition: Thread-local variables are variables that have a separate copy for each thread. Each thread sees and modifies its 
+own copy without affecting the copies belonging to other threads.
+
+Use Case: They are useful when you have data that needs to be associated with a thread and used throughout its execution. 
+Examples include thread-specific configurations or state.
+
+Storage: Memory for thread-local variables is typically allocated on the heap, but each thread has its own reference or 
+pointer to its instance.
+
+Declaration: In Java, you can use the ThreadLocal class to create and manage thread-local variables.
+
+
+Thread Stack:
+============
+
+Definition: The thread stack is a region of memory associated with each thread. It is used for storing local variables, 
+method call information, and the execution stack.
+
+Use Case: The thread stack is primarily used for managing method calls and local variables. Each thread has its own stack 
+to keep track of its method calls.
+
+Storage: Memory for the thread stack is typically allocated on the native heap (not the Java heap). Each thread has its own stack.
+
+Size: The size of the thread stack is fixed at thread creation time and is relatively small compared to the heap.
+
+
+Heap Objects:
+============
+
+Definition: Heap objects are objects that are allocated on the shared heap memory, accessible by all threads.
+
+Use Case: Objects stored in the heap are typically long-lived and shared among multiple threads. They can be accessed 
+concurrently by multiple threads.
+
+Storage: Memory for heap objects is allocated on the Java heap, which is shared among all threads in a Java application.
+
+Lifecycle: Objects in the heap can have a longer lifecycle compared to thread-local variables, and they are subject to garbage 
+collection when no longer referenced.
+
+In summary:
+
+Thread-local variables are specific to each thread and provide a way to have thread-specific data.
+Thread stacks are used for managing method calls and local variables, and each thread has its own stack.
+Heap objects are shared among all threads and are typically used for long-lived data that needs to be accessed concurrently.
+
+
+The default size for memory types such as thread-local variables, thread stack, and heap objects can vary and is influenced by factors such 
+as the Java Virtual Machine (JVM) implementation, the operating system, and the runtime configuration.
+
+Thread-Local Variables:
+
+The memory for thread-local variables is typically allocated on the heap, but the size of the thread-local variable itself is determined by 
+the type and content of the data stored in it.The ThreadLocal class in Java does not specify a default size for the variables themselves; 
+it manages the references to instances of the variables. Thread Stack:
+
+The size of the thread stack is determined by the JVM and can be influenced by various parameters, including the -Xss (stack size) option 
+when starting the JVM. The default stack size can vary between different JVM implementations and versions. For example, it might be 1 MB on some systems.
+
+Heap Objects:
+
+The size of heap objects is determined by the size of the objects themselves, which is influenced by the type and content of the data they store.
+The Java heap has its own settings, such as the initial heap size (-Xms), maximum heap size (-Xmx), and other garbage collection-related parameters.
+
+
