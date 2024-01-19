@@ -102,6 +102,21 @@ on the use case and the size of the data being processed. It's essential to cons
 your code accordingly.
 
 
+The groupingByConcurrent collector is designed for concurrent reduction. It internally uses a ConcurrentHashMap to perform the grouping
+operation, ensuring that it can be safely used in parallel streams without explicit synchronization.
+
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+// Concurrent reduction using toConcurrentMap
+Map<Boolean, List<Integer>> result = numbers.parallelStream()
+                                           .collect(Collectors.groupingByConcurrent(n -> n % 2 == 0));
+
+The groupingByConcurrent collector is designed for concurrent reduction. It internally uses a ConcurrentHashMap to perform the grouping operation, 
+ensuring that it can be safely used in parallel streams without explicit synchronization.
+
+
+
+
 
 
 
