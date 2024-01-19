@@ -29,16 +29,13 @@ collections.
 The reasons for better performance in the for-each loop version are as follows:
 
 Reduced Overhead: Streams introduce some overhead because they involve creating intermediate objects, lambda expressions, and 
-method calls. In contrast, a for-each loop operates directly on the 
-underlying data without these additional abstractions.
+method calls. In contrast, a for-each loop operates directly on the underlying data without these additional abstractions.
 
 Reduced Object Instantiation: Streams often involve creating temporary objects (e.g., objects for lambda expressions) and 
-performing additional method invocations. This can result in additional object 
-instantiation and garbage collection overhead.
+performing additional method invocations. This can result in additional object instantiation and garbage collection overhead.
 
 No Parallelism: Streams are designed to support parallel processing, which introduces synchronization and thread management 
-overhead. In the for-each loop, you are not dealing with parallel processing, 
-so this overhead is eliminated.
+overhead. In the for-each loop, you are not dealing with parallel processing, so this overhead is eliminated.
 
 However, it's important to note that the difference in performance is most noticeable in situations with a large amount of 
 data and complex operations. For small collections or simple operations, the performance difference may not be significant, 
