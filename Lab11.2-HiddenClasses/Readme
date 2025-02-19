@@ -1,0 +1,43 @@
+
+Java hidden classes, also known as "nestmates," were introduced as a part of Java 11. Nestmates provide 
+a way to access private members of a class from another class without using reflection. Hidden classes 
+are related to the concept of nestmates but are a specific type of nestmate.
+
+In this example:
+
+Outer is the outer class that has a private method privateMethod.
+
+HiddenClass is a hidden class (a nestmate of Outer). It contains a hidden method hiddenMethod that can 
+access the private method of the outer class.
+
+In the main method, an instance of the outer class is created (Outer outer = new Outer();). Then, a hidden 
+class is instantiated (HiddenClass hiddenClass = new HiddenClass();). Finally, the hidden class invokes the 
+private method of the outer class using the hidden method (hiddenClass.invokePrivateMethod(outer);).
+
+This example demonstrates how hidden classes can be used to access private members of another class without 
+using reflection, providing a more efficient and secure way to achieve such access. Keep in mind that the 
+use of hidden classes is relatively advanced and may not be necessary in many typical Java applications.
+
+Performance
+========
+
+MethodHandles:
+More efficient than reflection. Method handles are designed for performance and can be optimized 
+by the Java Virtual Machine (JVM). They involve less overhead, as they can be treated like direct 
+method calls after initial setup.
+
+Reflection:
+Slower due to more overhead in resolving method calls, accessing fields, and performing type checks. 
+Reflection requires additional checks and can lead to performance bottlenecks, especially in tight 
+loops or performance-sensitive applications.
+
+Use Cases
+======
+
+MethodHandles:
+More suited for complex use cases, such as implementing dynamic languages or frameworks where 
+performance is critical. They provide a lower-level API for method invocation.
+
+Reflection:
+Commonly used in simpler cases like accessing metadata, creating instances dynamically, or working 
+with annotations. It’s often the first choice for quick prototyping.

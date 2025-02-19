@@ -1,0 +1,119 @@
+
+Interface Segregation Principle (ISP): 
+
+A client should not be forced to implement interfaces they don't use. This principle 
+encourages the creation of small, cohesive interfaces rather than large, monolithic 
+ones.
+
+ISP Violation
+
+In this initial version, we have a single BankAccount interface that encompasses all 
+banking operations: deposit, withdraw, check balance, and transfer funds to another 
+account.
+
+However, not all types of bank accounts support all operations. For instance, a savings 
+account might not support transfers to other accounts, or an investment account 
+might not support withdrawals.
+
+ISP 
+
+
+The Interface Segregation Principle (ISP) states that a client should not be forced to depend on interfaces it does not use. In other words, interfaces should be fine-grained and client-specific.
+
+Let's apply ISP to a bank account scenario:
+
+java
+Copy code
+// BankAccount interface
+public interface BankAccount {
+    void deposit(double amount);
+    void withdraw(double amount);
+    double getBalance();
+    void transfer(BankAccount destination, double amount);
+}
+In this initial version, we have a single BankAccount interface that encompasses all banking operations: deposit, withdraw, check balance, and transfer funds to another account.
+
+However, not all types of bank accounts support all operations. For instance, a savings account might not support transfers to other accounts, or an investment account might not support withdrawals.
+
+Let's refine the design to adhere to the Interface Segregation Principle:
+
+java
+Copy code
+// BankAccount interface
+public interface BankAccount {
+    void deposit(double amount);
+    void withdraw(double amount);
+    double getBalance();
+}
+
+// Transferable interface for accounts that support fund transfers
+public interface Transferable {
+    void transfer(BankAccount destination, double amount);
+}
+
+// SavingsAccount class implementing BankAccount interface only
+public class SavingsAccount implements BankAccount {
+    private double balance;
+
+    @Override
+    public void deposit(double amount) {
+        // Deposit implementation
+    }
+
+    @Override
+    public void withdraw(double amount) {
+        // Withdraw implementation
+    }
+
+    @Override
+    public double getBalance() {
+        // Get balance implementation
+        return balance;
+    }
+}
+
+// CheckingAccount class implementing both BankAccount and Transferable interfaces
+public class CheckingAccount implements BankAccount, Transferable {
+    private double balance;
+
+    @Override
+    public void deposit(double amount) {
+        // Deposit implementation
+    }
+
+    @Override
+    public void withdraw(double amount) {
+        // Withdraw implementation
+    }
+
+    @Override
+    public double getBalance() {
+        // Get balance implementation
+        return balance;
+    }
+
+    @Override
+    public void transfer(BankAccount destination, double amount) {
+        // Transfer implementation
+    }
+}
+
+In this refined design:
+
+The BankAccount interface includes basic banking operations: deposit, withdraw, 
+and getBalance.
+
+The Transferable interface includes the transfer operation for accounts that support 
+fund transfers.
+
+The SavingsAccount class implements only the BankAccount interface since it doesn't 
+support transfers.
+
+The CheckingAccount class implements both the BankAccount and Transferable 
+interfaces since it supports fund transfers.
+
+
+
+
+
+

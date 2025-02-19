@@ -1,0 +1,29 @@
+The Stream API in Java 8 is primarily designed for processing collections of data. While it's not
+directly related to date and time operations, you can use the Stream API in conjunction with
+the Date and Time API to process and filter date/time-related data. 
+
+Ex1:
+
+In this example, a List of LocalDateTime objects is created. The Stream API is then used to filter 
+the date times, selecting only those with a month value equal to 2 (February). Finally, the
+ filtered date times are printed.
+
+This is a basic example, and you can use various Stream API operations to perform more 
+complex operations on date/time data, depending on your specific requirements.
+
+Ex2:
+
+We start with the current date (LocalDate.now()).
+
+We use the Stream.iterate method to create a stream of dates by repeatedly applying the 
+plusDays(1) method to each date in the stream.
+
+We limit the stream to contain only the next 7 days using the limit(7) method.
+
+We collect the stream elements into a List using Collectors.toList().
+
+Finally, we print the generated dates. You can customize the starting date or modify the 
+stream operations based on your specific needs
+
+
+

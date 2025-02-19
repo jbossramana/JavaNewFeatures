@@ -1,0 +1,49 @@
+Open/Closed Principle (OCP): 
+
+Software entities (classes, modules, functions, etc.) should be open for extension but closed for modification. 
+This means that you should be able to extend the behavior of a module without modifying its source code
+
+
+Violates Open Close Principle
+---------------------------------
+
+In this implementation:
+
+The Account class has a method calculateInterest() that calculates interest based on the balance and interest rate.
+
+The calculation logic is directly implemented within the calculateInterest() method of the Account class.
+
+This implementation violates the Open-Closed Principle because it's not easily extensible. If we want to add a new 
+type of interest calculation method (e.g., compound interest), we would need to modify the existing Account class, 
+which introduces the risk of breaking existing functionality and violates the principle of code stability.
+
+Open Close Principle
+------------------------
+
+In this updated design:
+
+I introduced an interface InterestCalculator defining a contract for interest calculation.
+
+Implemented two classes SimpleInterestCalculator and CompoundInterestCalculator, each responsible 
+for a specific interest calculation strategy.
+
+Modified the Account class to accept an instance of InterestCalculator via constructor injection.
+
+Removed the getInterestRate() method from the Account class since the interest rate is now encapsulated within
+ the InterestCalculator implementations.
+ 
+This design adheres to the Open-Closed Principle as it allows for extension (adding new interest calculation strategies) 
+without modifying existing code (the Account class). New interest calculation strategies can be added by implementing 
+the InterestCalculator interface, providing flexibility and maintainability to the system.
+
+
+Following SRP helps in creating classes that have a single responsibility and are less likely to be modified for 
+unrelated reasons.
+
+OCP encourages designing classes in a way that allows for extension without modification, which complements 
+SRP by reducing the need for changes to existing code when new features are added.
+
+
+
+
+

@@ -1,0 +1,14 @@
+Scoped values are a new way to share data between threads without using method parameters. 
+They also use less memory compared to Thread local variables.
+
+Scoped values allow you to share data between threads in a memory-efficient way. They are memory 
+efficient because the data inside a scoped value is immutable. This means that many threads can use 
+the data without every thread needing a copy of the data. This is especially useful in combination 
+with virtual threads. When running lots of virtual threads you will only need a single copy of the 
+data for any number of virtual threads.
+
+
+
+java  --enable-preview --source 22 ScopedValuesDemo.java
+
+

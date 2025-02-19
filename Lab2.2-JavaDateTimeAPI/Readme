@@ -1,0 +1,39 @@
+Java 8 introduced a new Date and Time API in the java.time package to address the shortcomings and 
+complexities of the older  java.util.Date and java.util.Calendar classes. 
+
+The key classes in the new API include:
+
+LocalDate: Represents a date (year, month, day) without time information.
+
+LocalDate date = LocalDate.now(); // Current date
+LocalTime: Represents a time without date information.
+
+LocalTime time = LocalTime.now(); // Current time
+LocalDateTime: Represents a date and time without a time zone.
+
+LocalDateTime dateTime = LocalDateTime.now(); // Current date and time
+ZonedDateTime: Represents a date and time with a time zone.
+
+ZoneId zoneId = ZoneId.of("America/New_York");
+ZonedDateTime zonedDateTime = ZonedDateTime.now(zoneId); // Current date and time in New 
+York time zone Instant: Represents a point in time, typically used for timestamps.
+
+Instant instant = Instant.now(); // Current timestamp
+Duration: Represents a length of time.
+
+LocalDateTime start = LocalDateTime.now();
+LocalDateTime end = start.plusHours(2).plusMinutes(30);
+Duration duration = Duration.between(start, end);
+Period: Represents a date-based amount of time.
+
+LocalDate birthday = LocalDate.of(1990, 5, 15);
+LocalDate today = LocalDate.now();
+Period period = Period.between(birthday, today);
+DateTimeFormatter: Allows formatting and parsing of dates and times.
+
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+String formattedDateTime = LocalDateTime.now().format(formatter);
+
+These classes provide a more comprehensive and flexible approach to handling date and time in Java, 
+and they are designed to be immutable and thread-safe. The new API also addresses some of the design
+ issues and limitations of the old Date and  Calendar classes.

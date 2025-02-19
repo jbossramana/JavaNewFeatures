@@ -1,0 +1,13 @@
+Text Blocks: Text blocks provide a more readable and natural way to declare 
+multi-line strings in Java. They allow you to include line breaks and preserve 
+the formatting of the text without the need for escape sequences.
+
+In this example, we define a message variable as a text block using the triple 
+double-quote (""") syntax. The text block spans multiple lines and includes line 
+breaks for better readability.
+
+Text blocks preserve the formatting of the text, including leading and trailing 
+whitespaces, line breaks, and indentation. They eliminate the need for escape 
+sequences or concatenation when dealing with multi-line strings.
+
+Note :  uncheck Enable Preview Features for java 20

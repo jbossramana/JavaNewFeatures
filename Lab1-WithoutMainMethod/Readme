@@ -1,0 +1,2 @@
+from command prompt:
+java  --enable-preview --source 22 Sample1.java

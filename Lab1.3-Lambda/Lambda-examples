@@ -1,0 +1,52 @@
+1. Lambda Expression without Arguments:
+// Without arguments
+
+Runnable lambdaNoArgs = () -> System.out.println("Hello, World!");
+lambdaNoArgs.run();  // Output: Hello, World!
+
+2. Lambda Expression with One Argument:
+// With one argument
+
+Function<Integer, Integer> lambdaOneArg = x -> x * x;
+
+System.out.println(lambdaOneArg.apply(5));  // Output: 25
+
+3. Lambda Expression with Multiple Arguments:
+
+// With multiple arguments
+
+BiFunction<Integer, Integer, Integer> lambdaMultipleArgs = (x, y) -> x + y;
+
+System.out.println(lambdaMultipleArgs.apply(3, 4));  // Output: 7
+
+4. Lambda Expression with One Statement:
+// With one statement
+
+Function<Integer, Integer> lambdaOneStatement = x -> x * 2;
+System.out.println(lambdaOneStatement.apply(3));  // Output: 6
+
+5. Lambda Expression with Multiple Statements:
+// With multiple statements
+
+Function<Integer, Integer> lambdaMultipleStatements = x -> {
+    int result = x * 2;
+    return result;
+};
+System.out.println(lambdaMultipleStatements.apply(4));  // Output: 8
+
+6. Lambda Expression without Return Value:
+// Without return value
+
+Consumer<Integer> lambdaNoReturn = x -> System.out.println("The value is " + x);
+lambdaNoReturn.accept(10);
+// Output: The value is 10
+
+7. Lambda Expression with Return Value:
+// With return value
+
+Function<Integer, Integer> lambdaWithReturn = x -> x * 2;
+int result = lambdaWithReturn.apply(5);
+System.out.println(result);  // Output: 10
+
+
+

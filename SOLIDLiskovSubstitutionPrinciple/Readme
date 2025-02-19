@@ -1,0 +1,35 @@
+Liskov Substitution Principle (LSP): 
+
+Subtypes must be substitutable for their base types without affecting the correctness 
+of the program. In simpler terms, objects of a superclass should be replaceable with 
+objects of its subclasses without altering the correctness of the program.
+
+LSP Violation:
+
+Version1:
+
+For a consultant, there is no bonus; as Consultant class is extending the Employee
+class, it automatically getting the bonus method. It is volating the LSP.
+
+Version2:
+
+Here, we are overriding the calculateBonus() in Consultant class, that is also not
+recommended.
+
+ @Override
+ public double calculateBonus() {
+     // Consultants don't receive a bonus
+     return 0;
+ }
+ 
+ 
+ LSP
+ 
+ In the refactored code, getBonus() method is removed from Employee class.
+ getBonus() method is written in PermanentEmployee Class.
+ 
+Now objects of a superclass should be replaceable with objects of its subclasses 
+without altering the correctness of the program.
+
+ 
+ 

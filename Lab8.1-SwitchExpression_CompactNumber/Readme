@@ -1,0 +1,3 @@
+Switch Expressions (Standard): Java 14 enhanced the switch statement to support 
+switch expressions, allowing you to use the switch statement as an expression and 
+assign its value directly to a variable.

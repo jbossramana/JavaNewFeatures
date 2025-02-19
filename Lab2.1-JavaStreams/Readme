@@ -1,0 +1,89 @@
+Instead of writing a complicated code for Java loops within/after loops, the coder 
+could simply write a pipeline in a few lines and the intent of it would be clear 
+at a glance (in most cases). It resulted in a cleaner code.
+
+Code writing became faster. Code writing became easier. Knowing how to use 
+Java streams was one of the most important conditions to be accepted in most 
+companies as a Java developer.
+
+
+Error Code:
+=======
+
+Once a terminal operation like forEach or collect is performed on a stream, it is considered 
+"consumed" and cannot be reused.
+
+Stream<Person> filteredStream = people.stream()
+        .filter(person -> person.getAge() > 50 && "male".equals(person.getGender()));
+
+filteredStream.forEach(person -> System.out.println("Result: " + person.getName()));
+
+// Additional conditions: Convert names to uppercase
+List<String> filteredNamesUppercase = filteredStream
+        .map(person -> person.getName().toUpperCase())
+        .collect(Collectors.toList());
+
+After you call filteredStream.forEach(...), the stream is consumed, and you cannot use it 
+again. Therefore, when you try to use filteredStream.map(...), it will result in an error.
+
+
+To fix this issue, we have a couple of options:
+===============================================
+
+1). Create a new stream for the additional operations:
+
+Stream<Person> filteredStream = people.stream()
+        .filter(person -> person.getAge() > 50 && "male".equals(person.getGender()));
+
+filteredStream.forEach(person -> System.out.println("Result: " + person.getName()));
+
+// Create a new stream for additional conditions
+List<String> filteredNamesUppercase = people.stream()
+        .filter(person -> person.getAge() > 50 && "male".equals(person.getGender()))
+        .map(person -> person.getName().toUpperCase())
+        .collect(Collectors.toList());
+
+
+2). Collect the results into a list and then perform additional operations on the list:
+
+Stream<Person> filteredStream = people.stream()
+        .filter(person -> person.getAge() > 50 && "male".equals(person.getGender()));
+
+filteredStream.forEach(person -> System.out.println("Result: " + person.getName()));
+
+// Collect the results into a list
+List<Person> filteredList = people.stream()
+        .filter(person -> person.getAge() > 50 && "male".equals(person.getGender()))
+        .collect(Collectors.toList());
+
+// Additional conditions: Convert names to uppercase
+List<String> filteredNamesUppercase = filteredList.stream()
+        .map(person -> person.getName().toUpperCase())
+        .collect(Collectors.toList());
+
+
+Error Code:
+
+ List<String> filteredNamesUppercase = filteredStream
+                .map(person -> person.getName().toUpperCase())
+                .peek(name -> System.out.println("After map: " + name))
+                .forEach(System.out::println).collect(Collectors.toList());
+                
+ issue : The forEach method is a terminal operation, which means it returns void and doesn't produce a new stream. 
+ You're trying to assign the result of forEach to the filteredNamesUppercase variable, which is causing a compilation error.
+ 
+ 
+ List<String> filteredNamesUppercase = people.stream()
+                .filter(person -> person.getAge() > 25)
+                .map(person -> {
+                    String name = person.getName().toUpperCase();
+                    System.out.println("After map: " + name);
+                    return name;
+                })
+                .collect(Collectors.toList());
+
+        System.out.println("Final Result: " + filteredNamesUppercase);
+        
+              
+
+    

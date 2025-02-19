@@ -1,0 +1,5 @@
+Java Numeric Literals with Underscore
+
+Java allows you to use underscore in numeric literals. This feature was introduced in Java 7. 
+This feature enables you, for example, to separate groups of digits in numeric literals, which can
+improve the readability of your source code.

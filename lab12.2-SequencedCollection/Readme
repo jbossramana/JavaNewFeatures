@@ -1,0 +1,87 @@
+Since Java 21, “Sequenced Collections“ is a new feature added to existing Collection classes/interfaces that 
+allows them to access the first and the last elements of it using the new default methods. The feature also 
+allows us to get a reversed  view of the collection with a simple method call.
+
+Note that the encounter order does not imply the physical positioning of elements. It just means that one 
+element is either before (closer to the first element) or after (closer to the last element) the other element.
+
+What are Sequenced Collections?
+
+This new initiative [JEP-431] introduces 3 new interfaces in the collection hierarchy that allow the existing collection 
+classes to have a defined encounter order. The order will have a well-defined first element, the second element, and so forth, 
+up to the last element.
+
+These new interfaces are:
+=========================
+
+SequencedCollection
+SequencedSet
+SequencedMap
+
+Motivation behind Sequenced Collections
+=======================================
+
+The motivation to introduce the sequenced interfaces is a long pending demand for simple methods to fetch the first and the 
+last elements of a collection. Currently, before Java 21, if we want to get the first and the last elements of an ArrayList 
+we would code:
+
+Not a Clean Code
+================
+var firstItem = arrayList.iterator().next(); 
+var lastItem = arrayList.get(arrayList.size() - 1);
+
+With the new sequenced collections, we can get the first and the last elements using simpler methods:
+
+This is Clean
+=============
+var firstItem = arrayList.getFirst();
+var lastItem = arrayList.getLast();
+
+
+The SequencedCollection Interface
+The SequencedCollection interface provides methods to add, retrieve, and remove elements at either end of the collection, along with the reversed() method, which provides a reverse-ordered view of this collection.
+
+As we can see all methods, except reversed(), are default methods and provide a default implementation.
+
+SequencedCollection.java
+interface SequencedCollection<E> extends Collection<E> {
+
+  // New Method
+
+  SequencedCollection<E> reversed();
+
+  // Promoted methods from Deque<E>
+
+  void addFirst(E);
+  void addLast(E);
+
+  E getFirst();
+  E getLast();
+
+  E removeFirst();
+  E removeLast();
+}
+
+For example, the following program creates an ArrayList and performs new sequenced operations on this list.
+
+ArrayList<Integer> arrayList = new ArrayList<>();
+
+arrayList.add(1);   // List contains: [1]
+
+arrayList.addFirst(0);  // List contains: [0, 1]
+arrayList.addLast(2);   // List contains: [0, 1, 2]
+
+Integer firstElement = arrayList.getFirst();  // 0
+Integer lastElement = arrayList.getLast();  // 2
+
+List<Integer> reversed = arrayList.reversed();  
+System.out.println(reversed); // Prints [2, 1, 0]
+
+Note that any modification to the list is visible in the methods, including the reversed view.
+
+// previous code ...
+
+arrayList.add(3);
+
+System.out.println( arrayList );	  //[0, 1, 2, 3]
+System.out.println( arrayList.reversed() );	//[3, 2, 1, 0]

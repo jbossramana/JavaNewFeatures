@@ -1,0 +1,32 @@
+
+
+Thread-local handshakes
+
+As part of this feature, Java introduces a callback on threads without performing a global VM safepoint. 
+This feature gives the ability to stop threads individually without having to perform a global virtual 
+machine safe point.
+
+ 
+
+What is safepoint?
+
+A point during program execution at which all GC roots are known and all heap object contents are 
+consistent. All threads must block at a safepoint before the GC can run.
+
+
+Example : ThreadLocalHandshakeExample
+===========================
+
+The workerThread is a simple worker thread that performs some work.
+
+The main thread initiates a callback on the worker thread without a global safepoint by calling 
+initiateThreadLocalHandshake(workerThread). The actual implementation details of Thread-Local 
+Handshakes are not shown as they are part of JVM internals.
+
+Implementation of Thread-Local Handshakes involves intricate details within the Java Virtual Machine 
+itself. The feature is not typically used directly in application code. Instead, it's a low-level mechanism 
+used by JVM internals, particularly in scenarios like garbage collection.
+
+
+
+

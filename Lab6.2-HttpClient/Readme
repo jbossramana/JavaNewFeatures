@@ -1,0 +1,80 @@
+HttpClient is a class in the java.net.http package introduced in Java 11 as part of the Java Platform, Standard Edition (Java SE). 
+It provides a modern and flexible API for sending and receiving HTTP requests and responses. The HttpClient class is designed to 
+replace the older HttpURLConnection API, providing a more feature-rich and convenient interface for working with HTTP.
+
+Key features of HttpClient include:
+
+Immutability:
+
+Instances of HttpClient are immutable. Once created, their configuration cannot be changed.
+
+Builder Pattern:
+
+HttpClient follows the builder pattern for configuration. You create an HttpClient.Builder, set various options, and then build the final HttpClient instance.
+
+Asynchronous API:
+
+HttpClient supports asynchronous programming using the CompletableFuture API. You can perform HTTP requests asynchronously, allowing non-blocking execution.
+
+Fluent API:
+
+The API is designed to be fluent, making it easy to chain method calls for configuring requests.
+
+
+
+
+HttpClient and WebClient are both used for making HTTP requests in Java, but they belong to different 
+libraries and serve different purposes. Here's a brief comparison:
+
+Library:
+
+HttpClient is a standard Java library introduced in Java 9 for making HTTP requests. It is part of the 
+java.net package.
+
+WebClient is part of the Spring Framework and is used for making reactive, non-blocking HTTP requests. 
+It's part of the Spring WebFlux module.
+
+Programming Model:
+
+HttpClient uses a traditional blocking I/O approach. Each request typically blocks the calling thread 
+until the response is received.
+
+WebClient is designed for reactive programming and is non-blocking. It supports reactive programming 
+paradigms, allowing you to handle a large number of concurrent connections efficiently.
+
+Reactivity:
+
+HttpClient is not inherently reactive. It provides a synchronous API for making HTTP requests.
+
+WebClient is built on top of the reactive foundation provided by the Spring Framework. It supports 
+reactive programming and integrates well with Spring's reactive features.
+
+Integration with Frameworks:
+
+HttpClient is a standard Java library and can be used in any Java application, but it might not 
+integrate as seamlessly with some frameworks that are built around reactive principles.
+
+WebClient is part of the Spring Framework and is designed to work well with other Spring components. 
+It integrates smoothly with Spring's reactive stack.
+
+Flexibility:
+
+HttpClient provides a lower-level API, giving you more control over the details of the HTTP request 
+and response.
+
+WebClient is more high-level and provides a more declarative and concise API. It has built-in support 
+for common use cases and integrates well with other Spring features.
+
+Usage in Microservices:
+
+WebClient is often used in microservices architectures where reactive programming is a good fit for 
+handling a large number of concurrent requests efficiently.
+
+HttpClient can be used in microservices as well, especially if the microservices are not built around 
+reactive principles.
+
+In summary, the choice between HttpClient and WebClient depends on your specific use case and the 
+programming model you want to adopt. If you are working within the Spring ecosystem and want to leverage 
+reactive programming, WebClient is a natural choice. If you are working on a project outside of Spring 
+or don't need reactive features, HttpClient is a solid option.
+

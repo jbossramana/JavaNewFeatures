@@ -1,0 +1,23 @@
+
+
+JEP 430, String Templates (Preview), has been promoted from Proposed to Target to Targeted status for JDK 21,
+a feature JEP type that proposes to enhance the Java programming language with string templates, which are 
+similar to string literals but contain embedded expressions incorporated into the string template at run time.
+
+
+Java developers can now enhance the language's string literals and text blocks with string templates that 
+can produce specialized results by coupling literal text with embedded expressions and processors. 
+
+The aim of this new feature is to simplify the writing of Java programs, improve the readability of expressions
+that mix text and expressions, and enhance the security of Java programs that compose strings from user-provided 
+values.
+
+
+
+
+Run the example from command-line:
+
+java  --enable-preview --source 21 TestMain.java
+
+Note : it will not work from STS, shows error
+

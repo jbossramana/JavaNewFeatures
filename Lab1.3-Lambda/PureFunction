@@ -1,0 +1,15 @@
+Pure Functions:
+
+A pure function has the following characteristics:
+
+Deterministic: Given the same input, it always produces the same output.
+No Side Effects: It does not modify any external state or interact with the 
+outside world (like changing global variables, modifying instance variables, or performing I/O operations).
+
+Impure Functions:
+
+An impure function may:
+
+Produce different outputs for the same inputs.
+Modify external state or have side effects (like altering instance variables, performing I/O, etc.).
+

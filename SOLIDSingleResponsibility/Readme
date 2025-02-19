@@ -1,0 +1,24 @@
+Single Responsibility Principle (SRP): 
+
+A class should have only one reason to change. In other words, each class should 
+have only one responsibility or should only do one thing.
+
+
+Violation of Single Responsibility Principle (SRP):
+
+This violates SRP because the Employee class is doing more than one thing. It's responsible for managing 
+employee attributes, performing salary calculations, and generating payslips. This violates the principle that 
+a class should have only one reason to change.
+
+For instance, if there are changes to how salaries are calculated or payslips are generated, you would need 
+to modify the Employee class, which should ideally be focused solely on managing employee data. This makes
+the class more prone to changes, increases its complexity, and couples it with unrelated responsibilities, 
+which is not desirable from a design perspective.
+
+
+Solution:
+
+To adhere to SRP, we should separate the responsibilities into distinct classes. For example, we could have an 
+Employee class responsible only for managing employee attributes, a SalaryCalculator class responsible for 
+calculating salaries, and a PayslipGenerator class responsible for generating payslips. This way, each class would 
+have a single responsibility, making the code more modular, maintainable, and easier to understand.

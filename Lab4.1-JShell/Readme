@@ -1,0 +1,48 @@
+What is JShell?
+
+Java Shell, also known as JShell, is an interactive command-line tool introduced in Java 9 that 
+allows developers to execute Java code snippets and commands directly without the need for a 
+full-fledged Java program. It provides a lightweight and interactive way to experiment with 
+Java code, test ideas, and learn the language features.
+
+Examples:
+
+1. Basic Arithmetic:
+
+int result = 5 + 3
+
+2. Variable Declaration and Assignment:
+
+String message = "Hello, JShell!"
+
+3. Defining a Method:
+
+void greet(String name) 
+{
+   System.out.println("Hello, " + name + "!");
+}
+
+4. Invoking a Method:
+
+greet("Ramana")
+
+
+5. Exploring APIs:
+
+import java.time.LocalDate
+LocalDate.now()
+
+
+6. Lambda expression 
+
+// Assign the lambda expression to a variable
+IntBinaryOperator sumFunction = (int x, int y) -> x + y
+
+// Use the variable to perform the sum
+sumFunction.applyAsInt(3, 7)
+
+
+In JShell, you can exit or close the JShell session using the following command:
+/exit
+
+

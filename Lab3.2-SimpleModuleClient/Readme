@@ -1,0 +1,10 @@
+requires com.module.simple;: This line specifies that the module com.module.client requires the 
+com.module.simple module. This means that the code in com.module.client depends on types provided 
+by the com.module.simple module.
+
+requires com.example;: This line specifies that the module com.module.client requires the com.example module. 
+This indicates that the code in com.module.client relies on types provided by the com.example module.
+
+uses com.example.MyService;: This line declares that the module com.module.client uses a service interface 
+named com.example.MyService. This means that the code in com.module.client expects to discover implementations 
+of MyService provided by other modules.

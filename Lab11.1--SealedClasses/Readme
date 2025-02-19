@@ -1,0 +1,16 @@
+JDK15
+====
+
+Sealed Classes (JEP 409): This feature aims to enhance the Java language to allow classes and interfaces 
+to be declared as "sealed," specifying which classes or interfaces can be subclasses or implementers.
+
+In this example, we have a Shape class declared as sealed. The sealed keyword restricts the subclasses that 
+can extend the Shape class. In this case, the subclasses Circle and Rectangle are explicitly permitted using 
+the permits keyword.
+
+The Circle and Rectangle classes are declared as final, indicating that they cannot be further subclassed.
+
+By using sealed classes, we can control the inheritance hierarchy and explicitly specify which classes can 
+extend the sealed class. This can provide more control over the design and usage of subclasses.
+
+

@@ -1,0 +1,39 @@
+DIP: Microservices should depend on abstractions rather than concrete implementations. 
+This allows for flexibility in choosing different implementations or technologies without
+ impacting the overall architecture.
+
+
+DIP violation:
+
+AccountService directly depends on DatabaseAccountDao, a concrete implementation of data access, 
+violating the Dependency Inversion Principle.
+
+AccountController directly depends on AccountService, another concrete implementation, without relying 
+on abstractions.
+
+There's no usage of interfaces or abstractions for AccountDao, violating the Dependency Inversion Principle, 
+as both high-level and low-level modules depend on concrete implementations rather than abstractions.
+
+
+DIP :
+
+In this modified code:
+
+We introduced the IAccountService interface, defining methods for account-related operations.'
+
+AccountService implements the IAccountService interface, providing concrete implementations for the account operations.
+
+AccountService depends on the IAccountDao interface, adhering to the Dependency Inversion Principle. This allows for easy 
+swapping of implementations and promotes decoupling between high-level and low-level modules.
+
+
+Dependency Injection (DI): This is a design pattern used to implement DIP. It is a technique in which an object receives its 
+dependencies from an external source rather than creating them itself. DI can be implemented using constructor injection, 
+setter injection, or interface injection. 
+
+
+
+
+
+
+

@@ -1,0 +1,34 @@
+Pattern matching for instanceof is a feature introduced in Java 16. It simplifies the common use case of checking an object's type and then casting it. 
+
+public class InstanceOfExample {
+    public static void main(String[] args) {
+        Object obj = "Hello, Java 16";
+
+        if (obj instanceof String str) {
+            // Here, str is a new variable that is bound to the casted object if it's an instance of String
+            System.out.println("The object is a String: " + str);
+        } else {
+            System.out.println("The object is not a String");
+        }
+    }
+}
+
+
+In this example:
+
+We have an Object called obj, which we want to check if it's an instance of String.
+
+The if statement uses the instanceof operator in combination with pattern matching. If obj is an 
+instance of String, it will cast it to a String and bind it to the variable str.
+
+Inside the if block, you can directly use the variable str as a String, which simplifies the code 
+and eliminates the need for an explicit cast.
+
+Pattern matching for instanceof not only simplifies the code but also makes it safer by eliminating 
+the need for explicit casting and reducing the risk of ClassCastException errors.
+
+
+
+
+
+

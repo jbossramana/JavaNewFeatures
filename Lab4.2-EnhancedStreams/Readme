@@ -1,0 +1,14 @@
+takeWhile and dropWhile:
+
+		takeWhile: Takes elements from the stream until the given predicate becomes false.
+		dropWhile: Skips elements from the stream until the given predicate becomes false.
+		
+ofNullable for Streams:
+
+		Stream.ofNullable: Creates a stream containing a single non-null element, or an empty stream if 
+		the element is null. This helps avoid NullPointerExceptions when working with streams.
+
+iterate with a Predicate:
+
+		Stream.iterate: Allows iteration based on a predicate. In this example, we start with 1 and 
+		iterate, doubling the value until the predicate (n < 10) becomes false.

@@ -1,0 +1,30 @@
+Records are a new kind of class introduced in Java 14. They provide a concise way to declare classes whose main purpose
+is to store data. A record is similar to a regular class, but it has a simplified syntax and automatically generates useful 
+methods such as equals(), hashCode(), and toString() based on the record's fields.
+
+Here's an example of a record declaration in Java 14:
+
+public record Person(String name, int age) {
+    // Record body (optional)
+}
+
+
+In the above example, the Person record declares two fields: name of type String and age of type int. The record automatically 
+generates the following methods:
+
+toString(): Returns a string representation of the record, including the values of its fields.
+equals(Object): Compares the record with another object for equality, based on the values of its fields.
+hashCode(): Generates a hash code for the record based on the values of its fields.
+name(): Returns the value of the name field.
+age(): Returns the value of the age field.
+
+Records are immutable by default, meaning their fields cannot be modified once the record is created. However, you can customize 
+the behavior of records by adding methods and constructors in the record body.
+Ex:
+   // Custom method to create a new record with a modified name
+    public Person withName(String newName) {
+        return new Person(newName, this.age);
+    }
+
+Records provide a more concise and readable way to define simple data-holding classes, reducing boilerplate code and promoting a 
+more functional programming style. They are especially useful in scenarios where you need to create classes solely for storing and transporting data.
